@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Environmental Management Program Portal</title>
+<title>Environmental Management Program Dashboard</title>
 
 <style>
 
@@ -12,221 +13,203 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
+    min-height:100vh;
     overflow:hidden;
-    height:100vh;
+    background:linear-gradient(
+        to bottom,
+        #87CEEB 0%,
+        #B7E4C7 40%,
+        #40916C 100%
+    );
 }
 
-/* ===========================
-   FULLSCREEN FOREST BACKGROUND
-=========================== */
-
-.background{
-    position:fixed;
-    inset:0;
-    background:url('assets/forest-bg.jpg') center center/cover no-repeat;
-    z-index:-10;
-}
-
-.background::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:rgba(0,50,20,0.35);
-}
-
-/* ===========================
-   CLOUDS
-=========================== */
-
-.cloud{
-    position:absolute;
-    opacity:.7;
-    pointer-events:none;
-}
-
-.cloud1{
-    width:250px;
-    top:50px;
-    animation:cloudMove 55s linear infinite;
-}
-
-.cloud2{
-    width:180px;
-    top:150px;
-    animation:cloudMove 70s linear infinite;
-}
-
-.cloud3{
-    width:220px;
-    top:260px;
-    animation:cloudMove 90s linear infinite;
-}
-
-@keyframes cloudMove{
-    from{
-        transform:translateX(-350px);
-    }
-    to{
-        transform:translateX(calc(100vw + 500px));
-    }
-}
-
-/* ===========================
-   BIRDS
-=========================== */
-
-.bird{
-    position:absolute;
-    width:70px;
-    opacity:.8;
-}
-
-.bird1{
-    top:120px;
-    animation:birdFly 20s linear infinite;
-}
-
-.bird2{
-    top:180px;
-    animation:birdFly 28s linear infinite;
-}
-
-@keyframes birdFly{
-    from{
-        transform:translateX(-100px);
-    }
-    to{
-        transform:translateX(calc(100vw + 100px));
-    }
-}
-
-/* ===========================
-   LEAVES
-=========================== */
+/* Animated Leaves */
 
 .leaf{
     position:absolute;
-    width:40px;
-    opacity:.7;
-    pointer-events:none;
+    font-size:30px;
+    opacity:.35;
+    animation:fall linear infinite;
 }
 
-.leaf1{
-    left:10%;
-    animation:leafFall 12s linear infinite;
-}
-
-.leaf2{
-    left:35%;
-    animation:leafFall 16s linear infinite;
-}
-
-.leaf3{
-    left:60%;
-    animation:leafFall 14s linear infinite;
-}
-
-.leaf4{
-    left:85%;
-    animation:leafFall 18s linear infinite;
-}
-
-@keyframes leafFall{
-
-    0%{
+@keyframes fall{
+    from{
         transform:translateY(-100px) rotate(0deg);
     }
 
-    100%{
-        transform:translateY(120vh) rotate(720deg);
+    to{
+        transform:translateY(110vh) rotate(360deg);
     }
 }
 
-/* ===========================
-   CONTENT
-=========================== */
+/* Container */
 
 .container{
+    position:relative;
+    z-index:10;
+
+    width:100%;
     height:100vh;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:20px;
 }
 
-.title{
+h1{
     color:white;
+    margin-bottom:50px;
     text-align:center;
-    margin-bottom:40px;
+
+    text-shadow:
+    0 0 15px rgba(255,255,255,.5),
+    0 0 30px rgba(255,255,255,.3);
 }
 
-.title h1{
-    font-size:3rem;
-    text-shadow:0 0 15px rgba(0,0,0,.6);
-}
-
-.title p{
-    font-size:1.2rem;
-    margin-top:10px;
-}
-
-/* ===========================
-   MANUAL CAROUSEL
-=========================== */
+/* Carousel */
 
 .carousel-wrapper{
-    width:95%;
-    overflow:hidden;
-    cursor:grab;
-}
+    width:92%;
+    max-width:1400px;
 
-.carousel-wrapper:active{
-    cursor:grabbing;
+    position:relative;
+    overflow:hidden;
 }
 
 .carousel{
     display:flex;
-    gap:30px;
+    gap:35px;
+
+    overflow-x:auto;
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    cursor:grab;
     user-select:none;
 }
 
+.carousel::-webkit-scrollbar{
+    display:none;
+}
+
+.carousel:active{
+    cursor:grabbing;
+}
+
+/* Water Drop Buttons */
+
 .main-btn{
 
-    min-width:320px;
-    height:170px;
+    min-width:260px;
+    height:150px;
 
     border:none;
-    border-radius:25px;
 
-    background:rgba(255,255,255,.15);
+    border-radius:
+    50% 50% 55% 55% /
+    60% 60% 40% 40%;
 
-    backdrop-filter:blur(12px);
+    position:relative;
+    overflow:hidden;
 
     color:white;
-    font-size:1.3rem;
-    font-weight:700;
+    font-size:20px;
+    font-weight:bold;
 
     cursor:pointer;
 
-    transition:.4s;
+    background:
+    radial-gradient(
+        circle at 30% 25%,
+        rgba(255,255,255,.95) 0%,
+        rgba(255,255,255,.55) 18%,
+        rgba(173,216,230,.45) 45%,
+        rgba(0,119,182,.40) 100%
+    );
+
+    backdrop-filter:blur(10px);
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,.3);
+    inset 0 8px 20px rgba(255,255,255,.7),
+    inset 0 -10px 25px rgba(0,119,182,.35),
+    0 12px 30px rgba(0,0,0,.25);
+
+    transition:.4s;
+}
+
+.main-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:12%;
+    left:18%;
+
+    width:40%;
+    height:22%;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.8);
+
+    filter:blur(4px);
 }
 
 .main-btn:hover{
-    transform:translateY(-8px);
-    background:rgba(255,255,255,.25);
+
+    transform:
+    translateY(-10px)
+    scale(1.05);
+
+    box-shadow:
+    inset 0 8px 20px rgba(255,255,255,.8),
+    inset 0 -15px 25px rgba(0,119,182,.5),
+    0 18px 40px rgba(0,119,182,.45);
 }
 
-/* ===========================
-   POPUP
-=========================== */
+/* Navigation */
+
+.nav-btn{
+
+    position:absolute;
+
+    top:50%;
+    transform:translateY(-50%);
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:white;
+
+    font-size:24px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    z-index:100;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+.left{
+    left:10px;
+}
+
+.right{
+    right:10px;
+}
+
+/* Popup */
 
 .popup{
 
@@ -239,25 +222,28 @@ body{
 
     justify-content:center;
     align-items:center;
+
+    z-index:999;
 }
 
 .popup-content{
 
     width:90%;
-    max-width:700px;
+    max-width:750px;
 
     background:white;
 
     padding:30px;
 
-    border-radius:25px;
+    border-radius:20px;
+
+    text-align:center;
 }
 
 .popup-content h2{
 
-    color:#2d6a4f;
-
-    margin-bottom:20px;
+    color:#2D6A4F;
+    margin-bottom:25px;
 }
 
 .links{
@@ -265,210 +251,296 @@ body{
     display:grid;
 
     grid-template-columns:
-    repeat(auto-fit,minmax(200px,1fr));
+    repeat(auto-fit,minmax(180px,1fr));
 
     gap:15px;
 }
 
-.sheet-link{
+.sheet-btn{
 
-    background:#2d6a4f;
-
-    color:white;
+    display:block;
 
     text-decoration:none;
+
+    background:#2D6A4F;
+    color:white;
 
     padding:15px;
 
     border-radius:12px;
 
-    text-align:center;
+    transition:.3s;
 }
 
-.sheet-link:hover{
-    background:#1b4332;
+.sheet-btn:hover{
+
+    background:#1B4332;
+    transform:translateY(-4px);
 }
 
 .close-btn{
 
     margin-top:20px;
 
-    padding:12px 25px;
-
     border:none;
+
+    background:#d62828;
+    color:white;
+
+    padding:12px 25px;
 
     border-radius:10px;
 
-    background:#d62828;
-
-    color:white;
-
     cursor:pointer;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.main-btn{
+    min-width:220px;
+    height:130px;
+    font-size:18px;
+}
+
+h1{
+    font-size:24px;
+}
 }
 
 </style>
 </head>
 <body>
 
-<div class="background">
-
-    <img src="assets/cloud.png" class="cloud cloud1">
-    <img src="assets/cloud.png" class="cloud cloud2">
-    <img src="assets/cloud.png" class="cloud cloud3">
-
-    <img src="assets/bird.png" class="bird bird1">
-    <img src="assets/bird.png" class="bird bird2">
-
-    <img src="assets/leaf.png" class="leaf leaf1">
-    <img src="assets/leaf.png" class="leaf leaf2">
-    <img src="assets/leaf.png" class="leaf leaf3">
-    <img src="assets/leaf.png" class="leaf leaf4">
-
-</div>
+<div class="leaf" style="left:5%;animation-duration:15s;">🍃</div>
+<div class="leaf" style="left:20%;animation-duration:18s;">🍃</div>
+<div class="leaf" style="left:35%;animation-duration:12s;">🍃</div>
+<div class="leaf" style="left:55%;animation-duration:16s;">🍃</div>
+<div class="leaf" style="left:75%;animation-duration:14s;">🍃</div>
+<div class="leaf" style="left:90%;animation-duration:17s;">🍃</div>
 
 <div class="container">
 
-    <div class="title">
-        <h1>🌿 Environmental Management Program</h1>
-        <p>Monitoring, Reporting and Knowledge Portal</p>
-    </div>
+<h1>
+🌱 Environmental Management Program Dashboard 🌱
+</h1>
 
-    <div class="carousel-wrapper" id="slider">
+<div class="carousel-wrapper">
 
-        <div class="carousel">
+<button class="nav-btn left" onclick="moveLeft()">❮</button>
+<button class="nav-btn right" onclick="moveRight()">❯</button>
 
-            <button class="main-btn" onclick="openPortal('Watershed Management')">
-                Watershed Management
-            </button>
+<div class="carousel" id="carousel">
 
-            <button class="main-btn" onclick="openPortal('Climate Adaptation')">
-                Climate Change Adaptation
-            </button>
+<button class="main-btn" onclick="openCategory('Watershed Management')">
+Watershed Management
+</button>
 
-            <button class="main-btn" onclick="openPortal('Biodiversity')">
-                Biodiversity Conservation
-            </button>
+<button class="main-btn" onclick="openCategory('Climate Adaptation')">
+Climate Adaptation
+</button>
 
-            <button class="main-btn" onclick="openPortal('Waste Management')">
-                Solid Waste Management
-            </button>
+<button class="main-btn" onclick="openCategory('Forest Protection')">
+Forest Protection
+</button>
 
-        </div>
+<button class="main-btn" onclick="openCategory('Waste Management')">
+Waste Management
+</button>
 
-    </div>
+<button class="main-btn" onclick="openCategory('Coastal Management')">
+Coastal Management
+</button>
+
+<button class="main-btn" onclick="openCategory('Biodiversity')">
+Biodiversity
+</button>
 
 </div>
 
+</div>
+
+</div>
+
+<!-- POPUP -->
+
 <div class="popup" id="popup">
 
-    <div class="popup-content">
+<div class="popup-content">
 
-        <h2 id="title"></h2>
+<h2 id="popupTitle"></h2>
 
-        <div class="links" id="links"></div>
+<div class="links" id="sheetLinks"></div>
 
-        <button class="close-btn"
-        onclick="closePortal()">
-        Close
-        </button>
+<button class="close-btn" onclick="closePopup()">
+Close
+</button>
 
-    </div>
+</div>
 
 </div>
 
 <script>
 
-/* ===================
-   MANUAL DRAG CAROUSEL
-=================== */
+const categories={
 
-const slider=document.getElementById('slider');
+"Watershed Management":[
+["Report 1","#"],
+["Report 2","#"],
+["Report 3","#"]
+],
 
-let isDown=false;
+"Climate Adaptation":[
+["Plan 1","#"],
+["Plan 2","#"],
+["Plan 3","#"]
+],
+
+"Forest Protection":[
+["Forest Monitoring","#"],
+["Forest Inventory","#"]
+],
+
+"Waste Management":[
+["Waste Report","#"],
+["MRF Tracker","#"]
+],
+
+"Coastal Management":[
+["Coastal Report","#"],
+["Mangrove Tracker","#"]
+],
+
+"Biodiversity":[
+["Species Database","#"],
+["Habitat Report","#"]
+]
+
+};
+
+function openCategory(name){
+
+document.getElementById("popupTitle").innerHTML=name;
+
+let html="";
+
+categories[name].forEach(item=>{
+
+html += `
+<a class="sheet-btn" href="${item[1]}" target="_blank">
+${item[0]}
+</a>
+`;
+
+});
+
+document.getElementById("sheetLinks").innerHTML=html;
+
+document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+}
+
+/* Infinite Loop */
+
+const carousel=document.getElementById("carousel");
+
+carousel.innerHTML += carousel.innerHTML;
+
+function moveLeft(){
+
+carousel.scrollBy({
+left:-320,
+behavior:"smooth"
+});
+
+setTimeout(loopCarousel,300);
+}
+
+function moveRight(){
+
+carousel.scrollBy({
+left:320,
+behavior:"smooth"
+});
+
+setTimeout(loopCarousel,300);
+}
+
+function loopCarousel(){
+
+const half=carousel.scrollWidth/2;
+
+if(carousel.scrollLeft>=half){
+
+carousel.scrollLeft=0;
+}
+
+if(carousel.scrollLeft<=0){
+
+carousel.scrollLeft=half;
+}
+}
+
+/* Drag Desktop */
+
+let isDragging=false;
 let startX;
 let scrollLeft;
 
-slider.addEventListener('mousedown',(e)=>{
-isDown=true;
-startX=e.pageX-slider.offsetLeft;
-scrollLeft=slider.scrollLeft;
+carousel.addEventListener("mousedown",(e)=>{
+
+isDragging=true;
+startX=e.pageX;
+scrollLeft=carousel.scrollLeft;
 });
 
-slider.addEventListener('mouseleave',()=>{
-isDown=false;
+carousel.addEventListener("mouseup",()=>{
+
+isDragging=false;
 });
 
-slider.addEventListener('mouseup',()=>{
-isDown=false;
+carousel.addEventListener("mouseleave",()=>{
+
+isDragging=false;
 });
 
-slider.addEventListener('mousemove',(e)=>{
+carousel.addEventListener("mousemove",(e)=>{
 
-if(!isDown) return;
+if(!isDragging) return;
 
 e.preventDefault();
 
-const x=e.pageX-slider.offsetLeft;
+const walk=(e.pageX-startX)*2;
 
-const walk=(x-startX)*2;
+carousel.scrollLeft=scrollLeft-walk;
 
-slider.scrollLeft=scrollLeft-walk;
-
+loopCarousel();
 });
 
 /* Mobile Swipe */
 
-slider.addEventListener('touchstart',(e)=>{
+carousel.addEventListener("touchstart",(e)=>{
 
 startX=e.touches[0].pageX;
-scrollLeft=slider.scrollLeft;
-
+scrollLeft=carousel.scrollLeft;
 });
 
-slider.addEventListener('touchmove',(e)=>{
+carousel.addEventListener("touchmove",(e)=>{
 
-const x=e.touches[0].pageX;
+const walk=(e.touches[0].pageX-startX)*2;
 
-const walk=(x-startX)*2;
+carousel.scrollLeft=scrollLeft-walk;
 
-slider.scrollLeft=scrollLeft-walk;
-
+loopCarousel();
 });
-
-/* ===================
-   POPUP LINKS
-=================== */
-
-function openPortal(name){
-
-document.getElementById('title').innerText=name;
-
-let html='';
-
-for(let i=1;i<=6;i++){
-
-html+=`
-<a class="sheet-link"
-href="#"
-target="_blank">
-Spreadsheet ${i}
-</a>
-`;
-
-}
-
-document.getElementById('links').innerHTML=html;
-
-document.getElementById('popup').style.display='flex';
-}
-
-function closePortal(){
-
-document.getElementById('popup').style.display='none';
-
-}
 
 </script>
 
 </body>
 </html>
+```
