@@ -282,7 +282,50 @@ h1{
 
     cursor:pointer;
 }
+    
+/* Footer */
 
+.footer{
+
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    padding:12px 20px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:14px;
+
+    background:rgba(0,0,0,.25);
+
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    z-index:100;
+}
+
+.footer a{
+
+    color:#a8dadc;
+
+    text-decoration:none;
+
+    font-weight:600;
+}
+
+.footer a:hover{
+
+    text-decoration:underline;
+}
+    
 /* Mobile */
 
 @media(max-width:1000px){
@@ -425,5 +468,9 @@ document.getElementById("popup").style.display="none";
 
 </script>
 
+<footer class="footer">
+    Environmental Management Program Dashboard | Developed by Ghilous © 2026 
+</footer>
+    
 </body>
 </html>
