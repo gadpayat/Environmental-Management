@@ -3,149 +3,233 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Environmental Management Program Dashboard</title>
+
+<title>Environmental Management Program Portal</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    min-height:100vh;
     overflow:hidden;
-    background:linear-gradient(
-        to bottom,
-        #87CEEB 0%,
-        #B7E4C7 40%,
-        #40916C 100%
-    );
+    height:100vh;
 }
 
-/* ===== Animated Background ===== */
+/* ===========================
+   FULLSCREEN FOREST BACKGROUND
+=========================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    background:url('assets/forest-bg.jpg') center center/cover no-repeat;
+    z-index:-10;
+}
+
+.background::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(0,50,20,0.35);
+}
+
+/* ===========================
+   CLOUDS
+=========================== */
+
+.cloud{
+    position:absolute;
+    opacity:.7;
+    pointer-events:none;
+}
+
+.cloud1{
+    width:250px;
+    top:50px;
+    animation:cloudMove 55s linear infinite;
+}
+
+.cloud2{
+    width:180px;
+    top:150px;
+    animation:cloudMove 70s linear infinite;
+}
+
+.cloud3{
+    width:220px;
+    top:260px;
+    animation:cloudMove 90s linear infinite;
+}
+
+@keyframes cloudMove{
+    from{
+        transform:translateX(-350px);
+    }
+    to{
+        transform:translateX(calc(100vw + 500px));
+    }
+}
+
+/* ===========================
+   BIRDS
+=========================== */
+
+.bird{
+    position:absolute;
+    width:70px;
+    opacity:.8;
+}
+
+.bird1{
+    top:120px;
+    animation:birdFly 20s linear infinite;
+}
+
+.bird2{
+    top:180px;
+    animation:birdFly 28s linear infinite;
+}
+
+@keyframes birdFly{
+    from{
+        transform:translateX(-100px);
+    }
+    to{
+        transform:translateX(calc(100vw + 100px));
+    }
+}
+
+/* ===========================
+   LEAVES
+=========================== */
 
 .leaf{
     position:absolute;
-    color:rgba(255,255,255,.25);
-    font-size:30px;
-    animation:fall linear infinite;
+    width:40px;
+    opacity:.7;
+    pointer-events:none;
 }
 
-@keyframes fall{
-    from{
+.leaf1{
+    left:10%;
+    animation:leafFall 12s linear infinite;
+}
+
+.leaf2{
+    left:35%;
+    animation:leafFall 16s linear infinite;
+}
+
+.leaf3{
+    left:60%;
+    animation:leafFall 14s linear infinite;
+}
+
+.leaf4{
+    left:85%;
+    animation:leafFall 18s linear infinite;
+}
+
+@keyframes leafFall{
+
+    0%{
         transform:translateY(-100px) rotate(0deg);
     }
-    to{
-        transform:translateY(110vh) rotate(360deg);
+
+    100%{
+        transform:translateY(120vh) rotate(720deg);
     }
 }
 
-/* ===== Main Container ===== */
+/* ===========================
+   CONTENT
+=========================== */
 
 .container{
-    position:relative;
-    z-index:10;
-    width:100%;
     height:100vh;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    padding:20px;
 }
 
-h1{
+.title{
     color:white;
-    text-shadow:2px 2px 8px rgba(0,0,0,.3);
-    margin-bottom:40px;
     text-align:center;
+    margin-bottom:40px;
 }
 
-/* ===== Carousel ===== */
+.title h1{
+    font-size:3rem;
+    text-shadow:0 0 15px rgba(0,0,0,.6);
+}
+
+.title p{
+    font-size:1.2rem;
+    margin-top:10px;
+}
+
+/* ===========================
+   MANUAL CAROUSEL
+=========================== */
 
 .carousel-wrapper{
-    width:90%;
-    max-width:1200px;
+    width:95%;
     overflow:hidden;
-    position:relative;
+    cursor:grab;
+}
+
+.carousel-wrapper:active{
+    cursor:grabbing;
 }
 
 .carousel{
     display:flex;
     gap:30px;
-    animation:scroll 18s linear infinite;
-}
-
-.carousel:hover{
-    animation-play-state:paused;
-}
-
-@keyframes scroll{
-    from{
-        transform:translateX(0);
-    }
-    to{
-        transform:translateX(-50%);
-    }
+    user-select:none;
 }
 
 .main-btn{
-    min-width:280px;
-    height:140px;
+
+    min-width:320px;
+    height:170px;
 
     border:none;
-    border-radius:20px;
+    border-radius:25px;
 
     background:rgba(255,255,255,.15);
-    backdrop-filter:blur(8px);
+
+    backdrop-filter:blur(12px);
 
     color:white;
-    font-size:22px;
-    font-weight:bold;
+    font-size:1.3rem;
+    font-weight:700;
 
     cursor:pointer;
 
-    transition:.3s;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    transition:.4s;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.3);
 }
 
 .main-btn:hover{
-    transform:translateY(-8px) scale(1.05);
+    transform:translateY(-8px);
     background:rgba(255,255,255,.25);
 }
 
-/* ===== Arrow Buttons ===== */
-
-.nav-btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:50px;
-    height:50px;
-
-    border:none;
-    border-radius:50%;
-
-    background:white;
-    cursor:pointer;
-    z-index:100;
-    font-size:24px;
-    font-weight:bold;
-}
-
-.left{
-    left:10px;
-}
-
-.right{
-    right:10px;
-}
-
-/* ===== Popup ===== */
+/* ===========================
+   POPUP
+=========================== */
 
 .popup{
+
     display:none;
 
     position:fixed;
@@ -155,223 +239,233 @@ h1{
 
     justify-content:center;
     align-items:center;
-
-    z-index:999;
 }
 
 .popup-content{
+
     width:90%;
     max-width:700px;
 
     background:white;
+
     padding:30px;
-    border-radius:20px;
+
+    border-radius:25px;
+}
+
+.popup-content h2{
+
+    color:#2d6a4f;
+
+    margin-bottom:20px;
+}
+
+.links{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:15px;
+}
+
+.sheet-link{
+
+    background:#2d6a4f;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px;
+
+    border-radius:12px;
 
     text-align:center;
 }
 
-.popup-content h2{
-    color:#2D6A4F;
-    margin-bottom:25px;
-}
-
-.links{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-}
-
-.sheet-btn{
-    display:block;
-    text-decoration:none;
-
-    background:#2D6A4F;
-    color:white;
-
-    padding:15px;
-    border-radius:12px;
-    transition:.3s;
-}
-
-.sheet-btn:hover{
-    background:#1B4332;
-    transform:translateY(-3px);
+.sheet-link:hover{
+    background:#1b4332;
 }
 
 .close-btn{
+
     margin-top:20px;
-    background:#d62828;
-    color:white;
-    border:none;
+
     padding:12px 25px;
+
+    border:none;
+
     border-radius:10px;
+
+    background:#d62828;
+
+    color:white;
+
     cursor:pointer;
 }
 
-/* Mobile */
-
-@media(max-width:768px){
-
-.main-btn{
-    min-width:220px;
-    height:120px;
-    font-size:18px;
-}
-
-h1{
-    font-size:24px;
-}
-}
 </style>
 </head>
 <body>
 
-<!-- Animated Leaves -->
-<div class="leaf" style="left:10%; animation-duration:15s;">🍃</div>
-<div class="leaf" style="left:25%; animation-duration:12s;">🍃</div>
-<div class="leaf" style="left:40%; animation-duration:18s;">🍃</div>
-<div class="leaf" style="left:60%; animation-duration:14s;">🍃</div>
-<div class="leaf" style="left:80%; animation-duration:17s;">🍃</div>
-<div class="leaf" style="left:95%; animation-duration:13s;">🍃</div>
+<div class="background">
+
+    <img src="assets/cloud.png" class="cloud cloud1">
+    <img src="assets/cloud.png" class="cloud cloud2">
+    <img src="assets/cloud.png" class="cloud cloud3">
+
+    <img src="assets/bird.png" class="bird bird1">
+    <img src="assets/bird.png" class="bird bird2">
+
+    <img src="assets/leaf.png" class="leaf leaf1">
+    <img src="assets/leaf.png" class="leaf leaf2">
+    <img src="assets/leaf.png" class="leaf leaf3">
+    <img src="assets/leaf.png" class="leaf leaf4">
+
+</div>
 
 <div class="container">
 
-    <h1>🌱 Environmental Management Program Dashboard 🌱</h1>
+    <div class="title">
+        <h1>🌿 Environmental Management Program</h1>
+        <p>Monitoring, Reporting and Knowledge Portal</p>
+    </div>
 
-    <div class="carousel-wrapper">
+    <div class="carousel-wrapper" id="slider">
 
-        <button class="nav-btn left" onclick="moveLeft()">❮</button>
-        <button class="nav-btn right" onclick="moveRight()">❯</button>
+        <div class="carousel">
 
-        <div class="carousel" id="carousel">
-
-            <!-- First Set -->
-            <button class="main-btn" onclick="openCategory('Watershed Management')">
+            <button class="main-btn" onclick="openPortal('Watershed Management')">
                 Watershed Management
             </button>
 
-            <button class="main-btn" onclick="openCategory('Climate Adaptation')">
-                Climate Adaptation
+            <button class="main-btn" onclick="openPortal('Climate Adaptation')">
+                Climate Change Adaptation
             </button>
 
-            <button class="main-btn" onclick="openCategory('Forest Protection')">
-                Forest Protection
+            <button class="main-btn" onclick="openPortal('Biodiversity')">
+                Biodiversity Conservation
             </button>
 
-            <button class="main-btn" onclick="openCategory('Waste Management')">
-                Waste Management
-            </button>
-
-            <!-- Duplicate Set for Infinite Effect -->
-            <button class="main-btn" onclick="openCategory('Watershed Management')">
-                Watershed Management
-            </button>
-
-            <button class="main-btn" onclick="openCategory('Climate Adaptation')">
-                Climate Adaptation
-            </button>
-
-            <button class="main-btn" onclick="openCategory('Forest Protection')">
-                Forest Protection
-            </button>
-
-            <button class="main-btn" onclick="openCategory('Waste Management')">
-                Waste Management
+            <button class="main-btn" onclick="openPortal('Waste Management')">
+                Solid Waste Management
             </button>
 
         </div>
+
     </div>
+
 </div>
 
-<!-- Popup -->
-
 <div class="popup" id="popup">
+
     <div class="popup-content">
 
-        <h2 id="popupTitle"></h2>
+        <h2 id="title"></h2>
 
-        <div class="links" id="sheetLinks"></div>
+        <div class="links" id="links"></div>
 
-        <button class="close-btn" onclick="closePopup()">
-            Close
+        <button class="close-btn"
+        onclick="closePortal()">
+        Close
         </button>
 
     </div>
+
 </div>
 
 <script>
 
-const categories = {
+/* ===================
+   MANUAL DRAG CAROUSEL
+=================== */
 
-"Watershed Management":[
-["Watershed Report 1","#"],
-["Watershed Report 2","#"],
-["Watershed Report 3","#"],
-["Watershed Report 4","#"]
-],
+const slider=document.getElementById('slider');
 
-"Climate Adaptation":[
-["Climate Plan 1","#"],
-["Climate Plan 2","#"],
-["Climate Plan 3","#"],
-["Climate Plan 4","#"]
-],
+let isDown=false;
+let startX;
+let scrollLeft;
 
-"Forest Protection":[
-["Forest Monitoring","#"],
-["Forest Assessment","#"],
-["Forest Report","#"],
-["Forest Inventory","#"]
-],
+slider.addEventListener('mousedown',(e)=>{
+isDown=true;
+startX=e.pageX-slider.offsetLeft;
+scrollLeft=slider.scrollLeft;
+});
 
-"Waste Management":[
-["Waste Tracker","#"],
-["MRF Report","#"],
-["Solid Waste Plan","#"],
-["Compliance Report","#"]
-]
+slider.addEventListener('mouseleave',()=>{
+isDown=false;
+});
 
-};
+slider.addEventListener('mouseup',()=>{
+isDown=false;
+});
 
-function openCategory(name){
+slider.addEventListener('mousemove',(e)=>{
 
-document.getElementById("popupTitle").innerHTML=name;
+if(!isDown) return;
 
-let html="";
+e.preventDefault();
 
-categories[name].forEach(item=>{
+const x=e.pageX-slider.offsetLeft;
+
+const walk=(x-startX)*2;
+
+slider.scrollLeft=scrollLeft-walk;
+
+});
+
+/* Mobile Swipe */
+
+slider.addEventListener('touchstart',(e)=>{
+
+startX=e.touches[0].pageX;
+scrollLeft=slider.scrollLeft;
+
+});
+
+slider.addEventListener('touchmove',(e)=>{
+
+const x=e.touches[0].pageX;
+
+const walk=(x-startX)*2;
+
+slider.scrollLeft=scrollLeft-walk;
+
+});
+
+/* ===================
+   POPUP LINKS
+=================== */
+
+function openPortal(name){
+
+document.getElementById('title').innerText=name;
+
+let html='';
+
+for(let i=1;i<=6;i++){
 
 html+=`
-<a class="sheet-btn" href="${item[1]}" target="_blank">
-${item[0]}
+<a class="sheet-link"
+href="#"
+target="_blank">
+Spreadsheet ${i}
 </a>
 `;
 
-});
-
-document.getElementById("sheetLinks").innerHTML=html;
-
-document.getElementById("popup").style.display="flex";
 }
 
-function closePopup(){
-document.getElementById("popup").style.display="none";
+document.getElementById('links').innerHTML=html;
+
+document.getElementById('popup').style.display='flex';
 }
 
-const carousel=document.getElementById("carousel");
+function closePortal(){
 
-function moveLeft(){
-carousel.scrollBy({
-left:-300,
-behavior:"smooth"
-});
-}
+document.getElementById('popup').style.display='none';
 
-function moveRight(){
-carousel.scrollBy({
-left:300,
-behavior:"smooth"
-});
 }
 
 </script>
