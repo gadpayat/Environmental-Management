@@ -235,13 +235,14 @@ h1{
 }
 
 .links{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(180px,1fr));
-
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     gap:15px;
+}
+
+.sheet-btn{
+    width:300px;
 }
 
 .sheet-btn{
@@ -326,20 +327,20 @@ h1{
 
 <div class="button-grid">
 
-<button class="main-btn" onclick="openCategory('Watershed Management')">
-<span>Watershed Management</span>
+<button class="main-btn" onclick="openCategory('Online Trackers')">
+<span>Online Trackers</span>
 </button>
 
-<button class="main-btn" onclick="openCategory('Climate Adaptation')">
-<span>Climate Adaptation</span>
+<button class="main-btn" onclick="openCategory('Manual & Guidance: MC/DO')">
+<span>Manual & Guidance: MC/DO</span>
 </button>
 
-<button class="main-btn" onclick="openCategory('Forest Protection')">
-<span>Forest Protection</span>
+<button class="main-btn" onclick="openCategory('Presentations')">
+<span>Presentations</span>
 </button>
 
-<button class="main-btn" onclick="openCategory('Waste Management')">
-<span>Waste Management</span>
+<button class="main-btn" onclick="openCategory('Forms & Templates')">
+<span>Forms & Templates</span>
 </button>
 
 </div>
@@ -368,28 +369,30 @@ Close
 
 const categories = {
 
-"Watershed Management":[
-["Watershed Report 1","#"],
-["Watershed Report 2","#"],
-["Watershed Report 3","#"]
+"Online Trackers":[
+["🌐 CNC/ECC Tarcker 2026 for KKB","https://docs.google.com/spreadsheets/d/12yK3rO10I0WLHzIROByat-dDk9lX6QB7/edit?gid=932123697#gid=932123697"],
+["🌐 CNC/ECC Tarcker 2026 for PCRP","#"]
 ],
 
-"Climate Adaptation":[
-["Climate Plan 1","#"],
-["Climate Plan 2","#"],
-["Climate Plan 3","#"]
+"Manual & Guidance: MC/DO":[
+["📝 Coverage Screening & Standard Requirements","https://drive.google.com/drive/folders/1d3HCXeAULDtLCvgpMk-e8diRvA95OTY6?fbclid=IwY2xjawQkTUdleHRuA2FlbQIxMABicmlkETFmbHJGMHhyYk9OeXVLb2I1c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpHeYYvGiNcYnzrLci8Pn_7c3VlaxrqxM1ATJxQqDjdAavNET2DlWIA-dSDg_aem_5wajropl8AhWHwt0aBcNrg"],
+["📝 Environment & Social Management Framework","https://drive.google.com/file/d/16bPWZcGPpHhbfmGsZh8PEHhR0pUUKeaa/view"]
 ],
 
-"Forest Protection":[
-["Forest Monitoring","#"],
-["Forest Assessment","#"],
-["Forest Inventory","#"]
+"Presentations":[
+["💻Environmental Safeguard Management (CNC & ECC)","https://docs.google.com/presentation/d/1fj_JKnktQkU4Z7VCq5XZUUkI4WCU544x/edit?slide=id.p1#slide=id.p1"],
+["💻Environmental Safeguard Management (Water Permit & others)","https://docs.google.com/presentation/d/1diGtlADf5QOxFimPiLfeX2QvS4EDLQ2f/edit?slide=id.p1#slide=id.p1"],
+["💻Risk Management for Community Projects","https://docs.google.com/presentation/d/19wt79gmihPddOoHCEEm3VDWAqZ-sFCrY/edit?slide=id.p1#slide=id.p1"],
+["💻ESA & ESMP","https://docs.google.com/presentation/d/1Y-6n9X5HiTQ_oHh7lYBZPQdbP0cF-_V-/edit?slide=id.p1#slide=id.p1"]
 ],
 
-"Waste Management":[
-["Waste Tracker","#"],
-["MRF Report","#"],
-["Compliance Report","#"]
+"Forms & Templates":[
+["📂 Water Permit Application Checklist","https://docs.google.com/spreadsheets/d/1rx5SE-32EFwXSGeL-nIcUgVOlAq-MqKr/edit?rtpof=true"],
+["📂 Requirement on Securing Tree Cutting Permit","https://docs.google.com/document/d/1M2WItLKvNbrbHGhzNWtLR5m7iQ98U-cq/edit"],
+["📂 CMR-SWA of Proponent","https://docs.google.com/document/d/1yzPLIQ2hh-DTM_YQVJSa9lhhuRzfoNwt/edit"],
+["🌐 Annex C: Proforma for CNC Application","https://drive.google.com/file/d/1Y0v2lS9ykNYIwiOKTwEt6iZZeKANsFE0/view"],
+["🌐 CNC Online Application","https://cnconline.emb.gov.ph/projectchecker/OnlineApplication.aspx"],
+["🌐 ECC Online Application","https://ecconline.emb.gov.ph/live/"]
 ]
 
 };
