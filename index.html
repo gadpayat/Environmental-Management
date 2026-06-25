@@ -40,15 +40,7 @@ h1{
     0 0 30px rgba(255,255,255,.4);
 }
 
-/* SECTIONS */
-
-.kkb-section,
-.pcrp-section{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin-bottom:80px;
-}
+/* SECTION TITLES */
 
 .kkb-title,
 .pcrp-title{
@@ -62,6 +54,16 @@ h1{
     box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
+.kkb-section,
+.pcrp-section{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:80px;
+}
+
+/* BUTTON LAYOUT */
+
 .button-grid,
 .pcrp-grid{
     display:flex;
@@ -71,33 +73,30 @@ h1{
     flex-wrap:wrap;
 }
 
-/* BUTTON GROUP */
-
 .button-card{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:12px;
 }
 
-/* MAIN WATER BUTTON */
+/* WATER BUTTONS */
 
 .main-btn{
     width:220px;
     height:220px;
     border:none;
     border-radius:50%;
-    position:relative;
-    overflow:hidden;
+    cursor:pointer;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
     text-align:center;
+    padding:20px;
+
     color:#035c06;
     font-size:25px;
     font-weight:700;
-    cursor:pointer;
 
     background:
     radial-gradient(
@@ -128,21 +127,23 @@ h1{
     100%{transform:translateY(0);}
 }
 
-/* LEAF BUTTON */
+/* LEAF BUTTONS */
 
 .leaf-btn{
     width:190px;
     height:230px;
     border:none;
     cursor:pointer;
-    color:white;
-    font-size:22px;
-    font-weight:700;
-    position:relative;
 
     display:flex;
     justify-content:center;
     align-items:center;
+
+    color:white;
+    font-size:22px;
+    font-weight:700;
+    text-align:center;
+    padding:20px;
 
     background:
     linear-gradient(
@@ -176,14 +177,15 @@ h1{
 /* SUB BUTTONS */
 
 .sub-buttons{
-    display:flex;
+    display:none;
     flex-direction:column;
     gap:8px;
     width:220px;
+    margin-top:15px;
 }
 
-.sub-buttons a{
-    text-decoration:none;
+.sub-buttons.show{
+    display:flex;
 }
 
 .sub-btn{
@@ -191,19 +193,27 @@ h1{
     padding:10px;
     border:none;
     border-radius:10px;
+    cursor:pointer;
+
     background:rgba(255,255,255,.15);
     color:white;
-    cursor:pointer;
     font-size:14px;
     font-weight:600;
+
+    backdrop-filter:blur(8px);
     transition:.3s;
-    backdrop-filter:blur(5px);
 }
 
 .sub-btn:hover{
     background:rgba(255,255,255,.35);
     transform:translateX(5px);
 }
+
+.sub-buttons a{
+    text-decoration:none;
+}
+
+/* FOOTER */
 
 .footer{
     position:fixed;
@@ -233,14 +243,14 @@ h1{
         font-size:18px;
     }
 
-    .sub-buttons{
-        width:160px;
-    }
-
     .leaf-btn{
         width:140px;
         height:180px;
         font-size:18px;
+    }
+
+    .sub-buttons{
+        width:160px;
     }
 }
 
@@ -260,53 +270,61 @@ h1{
 
 <div class="button-grid">
 
-    <!-- CARD 1 -->
-    <div class="button-card">
-        <button class="main-btn">Online Tracker</button>
+<div class="button-card">
+<button class="main-btn" onclick="toggleMenu('kkb1')">
+Online Tracker
+</button>
 
-        <div class="sub-buttons">
-            <a href="https://docs.google.com/spreadsheets/d/12yK3rO10I0WLHzIROByat-dDk9lX6QB7/edit?gid=932123697#gid=932123697" target="_blank"><button class="sub-btn">Tracker Link 1</button></a>
-        </div>
-    </div>
+<div class="sub-buttons" id="kkb1">
+<a href="https://example.com/1" target="_blank"><button class="sub-btn">Tracker 1</button></a>
+<a href="https://example.com/2" target="_blank"><button class="sub-btn">Tracker 2</button></a>
+<a href="https://example.com/3" target="_blank"><button class="sub-btn">Tracker 3</button></a>
+<a href="https://example.com/4" target="_blank"><button class="sub-btn">Tracker 4</button></a>
+<a href="https://example.com/5" target="_blank"><button class="sub-btn">Tracker 5</button></a>
+</div>
+</div>
 
-    <!-- CARD 2 -->
-    <div class="button-card">
-        <button class="main-btn">Manual & Guidance</button>
+<div class="button-card">
+<button class="main-btn" onclick="toggleMenu('kkb2')">
+Manual & Guidance
+</button>
 
-        <div class="sub-buttons">
-            <a href="#" target="_blank"><button class="sub-btn">MC/DO 1</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">MC/DO 2</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">MC/DO 3</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">MC/DO 4</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">MC/DO 5</button></a>
-        </div>
-    </div>
+<div class="sub-buttons" id="kkb2">
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 1</button></a>
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 2</button></a>
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 3</button></a>
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 4</button></a>
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 5</button></a>
+</div>
+</div>
 
-    <!-- CARD 3 -->
-    <div class="button-card">
-        <button class="main-btn">Presentations</button>
+<div class="button-card">
+<button class="main-btn" onclick="toggleMenu('kkb3')">
+Presentations
+</button>
 
-        <div class="sub-buttons">
-            <a href="#" target="_blank"><button class="sub-btn">Presentation 1</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Presentation 2</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Presentation 3</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Presentation 4</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Presentation 5</button></a>
-        </div>
-    </div>
+<div class="sub-buttons" id="kkb3">
+<a href="#" target="_blank"><button class="sub-btn">Presentation 1</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Presentation 2</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Presentation 3</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Presentation 4</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Presentation 5</button></a>
+</div>
+</div>
 
-    <!-- CARD 4 -->
-    <div class="button-card">
-        <button class="main-btn">Forms & Templates</button>
+<div class="button-card">
+<button class="main-btn" onclick="toggleMenu('kkb4')">
+Forms & Templates
+</button>
 
-        <div class="sub-buttons">
-            <a href="#" target="_blank"><button class="sub-btn">Form 1</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Form 2</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Form 3</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Form 4</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Form 5</button></a>
-        </div>
-    </div>
+<div class="sub-buttons" id="kkb4">
+<a href="#" target="_blank"><button class="sub-btn">Form 1</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Form 2</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Form 3</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Form 4</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Form 5</button></a>
+</div>
+</div>
 
 </div>
 
@@ -320,53 +338,61 @@ h1{
 
 <div class="pcrp-grid">
 
-    <div class="button-card">
-        <button class="leaf-btn">Online Tracker</button>
+<div class="button-card">
+<button class="leaf-btn" onclick="toggleMenu('pcrp1')">
+Online Tracker
+</button>
 
-        <div class="sub-buttons">
-            <a href="#" target="_blank"><button class="sub-btn">Link 1</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 2</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 3</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 4</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 5</button></a>
-        </div>
-    </div>
+<div class="sub-buttons" id="pcrp1">
+<a href="#" target="_blank"><button class="sub-btn">Tracker 1</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Tracker 2</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Tracker 3</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Tracker 4</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Tracker 5</button></a>
+</div>
+</div>
 
-    <div class="button-card">
-        <button class="leaf-btn">Manual & Guidance</button>
+<div class="button-card">
+<button class="leaf-btn" onclick="toggleMenu('pcrp2')">
+Manual & Guidance
+</button>
 
-        <div class="sub-buttons">
-            <a href="#" target="_blank"><button class="sub-btn">Link 1</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 2</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 3</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 4</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 5</button></a>
-        </div>
-    </div>
+<div class="sub-buttons" id="pcrp2">
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 1</button></a>
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 2</button></a>
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 3</button></a>
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 4</button></a>
+<a href="#" target="_blank"><button class="sub-btn">MC/DO 5</button></a>
+</div>
+</div>
 
-    <div class="button-card">
-        <button class="leaf-btn">Presentations</button>
+<div class="button-card">
+<button class="leaf-btn" onclick="toggleMenu('pcrp3')">
+Presentations
+</button>
 
-        <div class="sub-buttons">
-            <a href="#" target="_blank"><button class="sub-btn">Link 1</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 2</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 3</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 4</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 5</button></a>
-        </div>
-    </div>
+<div class="sub-buttons" id="pcrp3">
+<a href="#" target="_blank"><button class="sub-btn">Presentation 1</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Presentation 2</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Presentation 3</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Presentation 4</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Presentation 5</button></a>
+</div>
+</div>
 
-    <div class="button-card">
-        <button class="leaf-btn">Forms & Templates</button>
+<div class="button-card">
+<button class="leaf-btn" onclick="toggleMenu('pcrp4')">
+Forms & Templates
+</button>
 
-        <div class="sub-buttons">
-            <a href="#" target="_blank"><button class="sub-btn">Link 1</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 2</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 3</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 4</button></a>
-            <a href="#" target="_blank"><button class="sub-btn">Link 5</button></a>
-        </div>
-    </div>
+<div class="sub-buttons" id="pcrp4">
+<a href="#" target="_blank"><button class="sub-btn">Form 1</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Form 2</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Form 3</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Form 4</button></a>
+<a href="#" target="_blank"><button class="sub-btn">Form 5</button></a>
+</div>
+</div>
 
 </div>
 
@@ -378,7 +404,22 @@ h1{
 🌴 Environmental Management | Developed by Ghilous © 2026
 </footer>
 
+<script>
+
+function toggleMenu(menuId){
+
+    const menus = document.querySelectorAll('.sub-buttons');
+
+    menus.forEach(menu=>{
+        if(menu.id !== menuId){
+            menu.classList.remove('show');
+        }
+    });
+
+    document.getElementById(menuId).classList.toggle('show');
+}
+
+</script>
+
 </body>
 </html>
-
-Replace each href="#" with your actual URLs. Every sub-button will open its link in a new browser tab because of target="_blank".
