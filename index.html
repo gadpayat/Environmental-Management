@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Environmental Management</title>
 
 <style>
@@ -15,77 +14,59 @@
     font-family:'Segoe UI',sans-serif;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
     background:transparent;
-    overflow:hidden;
+    overflow:auto;
 }
 
-/* Main Container */
-
 .container{
-    width:100%;
-    height:100vh;
-
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    padding:40px 20px 100px;
 }
-
-/* Title */
 
 h1{
     color:white;
     text-align:center;
-    margin-bottom:120px;
+    margin-bottom:60px;
     font-size:60px;
     text-shadow:
     0 0 15px rgba(255,255,255,.6),
     0 0 30px rgba(255,255,255,.4);
 }
 
-/* Single Row Buttons */
+/* WATER BUTTON ROW */
 
 .button-grid{
-
     display:flex;
-
     justify-content:center;
     align-items:center;
-
     gap:40px;
-
-    flex-wrap:nowrap;
+    flex-wrap:wrap;
 }
 
-/* Floating Water Bubble Buttons */
+/* WATER BUTTONS */
 
 .main-btn{
-
     width:220px;
     height:220px;
-
     border:none;
     border-radius:50%;
-
     position:relative;
     overflow:hidden;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     padding:20px;
-
     text-align:center;
-
     color:#035c06;
     font-size:25px;
     font-weight:700;
-
     cursor:pointer;
 
     background:
@@ -98,60 +79,92 @@ h1{
         rgba(0,119,182,.75) 100%
     );
 
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-
     box-shadow:
         inset 0 12px 20px rgba(255,255,255,.8),
         inset 0 -20px 30px rgba(0,119,182,.4),
         0 12px 30px rgba(0,0,0,.25);
 
     animation:bubbleFloat 5s ease-in-out infinite;
-
     transition:.4s;
 }
-    
-/* PCRP Title */
+
+.main-btn span{
+    position:relative;
+    z-index:2;
+}
+
+.main-btn::before{
+    content:"";
+    position:absolute;
+    top:18%;
+    left:18%;
+    width:35%;
+    height:18%;
+    border-radius:50%;
+    background:rgba(255,255,255,.85);
+    filter:blur(4px);
+}
+
+.main-btn::after{
+    content:"";
+    position:absolute;
+    top:35%;
+    right:25%;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:rgba(255,255,255,.7);
+    filter:blur(2px);
+}
+
+@keyframes bubbleFloat{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-18px);}
+    100%{transform:translateY(0);}
+}
+
+.main-btn:hover{
+    transform:translateY(-10px) scale(1.08);
+}
+
+/* PCRP SECTION */
+
+.pcrp-section{
+    margin-top:80px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
 .pcrp-title{
-    margin-top:70px;
-    margin-bottom:30px;
-
     padding:12px 40px;
-
     background:rgba(0,120,60,.85);
-
     color:white;
-
     font-size:32px;
     font-weight:700;
-
     border-radius:15px;
-
+    margin-bottom:35px;
     box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
 
-/* PCRP Grid */
-
 .pcrp-grid{
+    display:flex;
+    justify-content:center;
+    align-items:center;
     gap:30px;
+    flex-wrap:wrap;
 }
 
-/* Leaf Buttons */
+/* LEAF BUTTONS */
 
 .leaf-btn{
-
     width:190px;
     height:230px;
-
     border:none;
-
     cursor:pointer;
-
     color:white;
     font-size:22px;
     font-weight:700;
-
     position:relative;
 
     display:flex;
@@ -174,312 +187,63 @@ h1{
         0 12px 25px rgba(0,0,0,.25);
 
     animation:leafFloat 4s ease-in-out infinite;
-
     transition:.4s;
 }
 
-/* Leaf Vein */
-
 .leaf-btn::before{
-
     content:"";
-
     position:absolute;
-
     width:4px;
     height:75%;
-
     background:rgba(255,255,255,.4);
-
     border-radius:20px;
-
     transform:rotate(25deg);
 }
 
-/* Floating Animation */
-
 @keyframes leafFloat{
-
     0%{
         transform:translateY(0) rotate(-2deg);
     }
-
     50%{
         transform:translateY(-15px) rotate(2deg);
     }
-
     100%{
         transform:translateY(0) rotate(-2deg);
     }
 }
 
-.leaf-btn:nth-child(2){
-    animation-delay:.7s;
-}
-
-.leaf-btn:nth-child(3){
-    animation-delay:1.4s;
-}
-
-.leaf-btn:nth-child(4){
-    animation-delay:2.1s;
-}
-
 .leaf-btn:hover{
-
-    transform:
-    translateY(-10px)
-    scale(1.05);
-
-    box-shadow:
-        0 20px 35px rgba(45,106,79,.5);
+    transform:translateY(-10px) scale(1.05);
 }
-    
-.main-btn span{
-    position:relative;
-    z-index:10;
-}
-
-/* Bubble Reflection */
-
-.main-btn::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:18%;
-    left:18%;
-
-    width:35%;
-    height:18%;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.85);
-
-    filter:blur(4px);
-}
-
-.main-btn::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:35%;
-    right:25%;
-
-    width:20px;
-    height:20px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.7);
-
-    filter:blur(2px);
-}
-
-/* Floating Animation */
-
-@keyframes bubbleFloat{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-18px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-}
-
-.main-btn:nth-child(2){
-    animation-delay:.8s;
-}
-
-.main-btn:nth-child(3){
-    animation-delay:1.6s;
-}
-
-.main-btn:nth-child(4){
-    animation-delay:2.4s;
-}
-
-.main-btn:hover{
-
-    transform:
-    translateY(-10px)
-    scale(1.08);
-
-    box-shadow:
-        inset 0 15px 25px rgba(255,255,255,.9),
-        inset 0 -25px 35px rgba(0,119,182,.5),
-        0 20px 40px rgba(0,119,182,.45);
-}
-
-/* Popup */
-
-.popup{
-
-    display:none;
-
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,.6);
-
-    justify-content:center;
-    align-items:center;
-
-    z-index:999;
-}
-
-.popup-content{
-
-    width:90%;
-    max-width:700px;
-
-    background:white;
-
-    padding:30px;
-
-    border-radius:20px;
-
-    text-align:center;
-}
-
-.popup-content h2{
-
-    color:#2D6A4F;
-    margin-bottom:20px;
-}
-
-.links{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-}
-
-.sheet-btn{
-    width:300px;
-}
-
-.sheet-btn{
-
-    display:block;
-
-    text-decoration:none;
-
-    background:#2D6A4F;
-    color:white;
-
-    padding:15px;
-
-    border-radius:12px;
-
-    transition:.3s;
-}
-
-.sheet-btn:hover{
-
-    background:#1B4332;
-    transform:translateY(-3px);
-}
-
-.close-btn{
-
-    margin-top:20px;
-
-    border:none;
-
-    background:#d62828;
-    color:white;
-
-    padding:12px 25px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-}
-    
-/* Footer */
 
 .footer{
-
     position:fixed;
-
     bottom:0;
     left:0;
-
     width:100%;
-
-    padding:12px 20px;
-
+    padding:12px;
     text-align:center;
-
     color:white;
-
-    font-size:14px;
-
     background:rgba(0,0,0,.25);
-
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
-
-    border-top:1px solid rgba(255,255,255,.15);
-
-    z-index:100;
 }
-
-.footer a{
-
-    color:#a8dadc;
-
-    text-decoration:none;
-
-    font-weight:600;
-}
-
-.footer a:hover{
-
-    text-decoration:underline;
-}
-    
-/* Mobile */
 
 @media(max-width:1000px){
 
-.button-grid{
+    h1{
+        font-size:40px;
+    }
 
-    overflow-x:auto;
+    .main-btn{
+        width:160px;
+        height:160px;
+        font-size:16px;
+    }
 
-    justify-content:flex-start;
-
-    padding:20px;
-
-    width:100%;
-
-    scrollbar-width:none;
-}
-
-.button-grid::-webkit-scrollbar{
-    display:none;
-}
-
-.main-btn{
-
-    width:160px;
-    height:160px;
-
-    min-width:160px;
-
-    font-size:15px;
-}
+    .leaf-btn{
+        width:140px;
+        height:180px;
+        font-size:18px;
+    }
 }
 
 </style>
@@ -488,165 +252,65 @@ h1{
 
 <div class="container">
 
-<h1>
-Environmental Management
-</h1>
+    <h1>Environmental Management</h1>
 
-<div class="button-grid">
+    <!-- WATER BUTTONS -->
 
-<!-- PCRP (PAGKILOS) Section -->
+    <div class="button-grid">
 
-<div class="section-title pcrp-title">
-    PCRP (PAGKILOS)
-</div>
+        <button class="main-btn">
+            <span>Online Trackers</span>
+        </button>
 
-<div class="button-grid pcrp-grid">
+        <button class="main-btn">
+            <span>Manual & Guidance: MC/DO</span>
+        </button>
 
-    <button class="leaf-btn" onclick="openCategory('PAGKILOS Planning')">
-        <span>Planning</span>
-    </button>
+        <button class="main-btn">
+            <span>Presentations</span>
+        </button>
 
-    <button class="leaf-btn" onclick="openCategory('PAGKILOS Monitoring')">
-        <span>Monitoring</span>
-    </button>
+        <button class="main-btn">
+            <span>Forms & Templates</span>
+        </button>
 
-    <button class="leaf-btn" onclick="openCategory('PAGKILOS Reports')">
-        <span>Reports</span>
-    </button>
+    </div>
 
-    <button class="leaf-btn" onclick="openCategory('PAGKILOS Templates')">
-        <span>Templates</span>
-    </button>
+    <!-- PCRP SECTION BELOW -->
 
-</div>
-    
-<button class="main-btn" onclick="openCategory('Online Trackers')">
-<span>Online Trackers</span>
-</button>
+    <div class="pcrp-section">
 
-<button class="main-btn" onclick="openCategory('Manual & Guidance: MC/DO')">
-<span>Manual & Guidance: MC/DO</span>
-</button>
+        <div class="pcrp-title">
+            PCRP (PAGKILOS)
+        </div>
 
-<button class="main-btn" onclick="openCategory('Presentations')">
-<span>Presentations</span>
-</button>
+        <div class="pcrp-grid">
 
-<button class="main-btn" onclick="openCategory('Forms & Templates')">
-<span>Forms & Templates</span>
-</button>
+            <button class="leaf-btn">
+                <span>Planning</span>
+            </button>
 
-</div>
+            <button class="leaf-btn">
+                <span>Monitoring</span>
+            </button>
 
-</div>
+            <button class="leaf-btn">
+                <span>Reports</span>
+            </button>
 
-<!-- Popup -->
+            <button class="leaf-btn">
+                <span>Templates</span>
+            </button>
 
-<div class="popup" id="popup">
+        </div>
 
-<div class="popup-content">
-
-<h2 id="popupTitle"></h2>
-
-<div class="links" id="sheetLinks"></div>
-
-<button class="close-btn" onclick="closePopup()">
-Close
-</button>
+    </div>
 
 </div>
-
-</div>
-
-<script>
-
-const categories = {
-
-"Online Trackers":[
-["🌐 CNC/ECC Tarcker 2026 for KKB","https://docs.google.com/spreadsheets/d/12yK3rO10I0WLHzIROByat-dDk9lX6QB7/edit?gid=932123697#gid=932123697"],
-["🌐 CNC/ECC Tarcker 2026 for PCRP","#"]
-],
-
-"Manual & Guidance: MC/DO":[
-["📝 Coverage Screening & Standard Requirements","https://drive.google.com/drive/folders/1d3HCXeAULDtLCvgpMk-e8diRvA95OTY6?fbclid=IwY2xjawQkTUdleHRuA2FlbQIxMABicmlkETFmbHJGMHhyYk9OeXVLb2I1c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpHeYYvGiNcYnzrLci8Pn_7c3VlaxrqxM1ATJxQqDjdAavNET2DlWIA-dSDg_aem_5wajropl8AhWHwt0aBcNrg"],
-["📝 Environment & Social Management Framework","https://drive.google.com/file/d/16bPWZcGPpHhbfmGsZh8PEHhR0pUUKeaa/view"]
-],
-
-"Presentations":[
-["💻Environmental Safeguard Management (CNC & ECC)","https://docs.google.com/presentation/d/1fj_JKnktQkU4Z7VCq5XZUUkI4WCU544x/edit?slide=id.p1#slide=id.p1"],
-["💻Environmental Safeguard Management (Water Permit & others)","https://docs.google.com/presentation/d/1diGtlADf5QOxFimPiLfeX2QvS4EDLQ2f/edit?slide=id.p1#slide=id.p1"],
-["💻Risk Management for Community Projects","https://docs.google.com/presentation/d/19wt79gmihPddOoHCEEm3VDWAqZ-sFCrY/edit?slide=id.p1#slide=id.p1"],
-["💻ESA & ESMP","https://docs.google.com/presentation/d/1Y-6n9X5HiTQ_oHh7lYBZPQdbP0cF-_V-/edit?slide=id.p1#slide=id.p1"]
-],
-
-"Forms & Templates":[
-["📂 Water Permit Application Checklist","https://docs.google.com/spreadsheets/d/1rx5SE-32EFwXSGeL-nIcUgVOlAq-MqKr/edit?rtpof=true"],
-["📂 Requirement on Securing Tree Cutting Permit","https://docs.google.com/document/d/1M2WItLKvNbrbHGhzNWtLR5m7iQ98U-cq/edit"],
-["📂 CMR-SWA of Proponent","https://docs.google.com/document/d/1yzPLIQ2hh-DTM_YQVJSa9lhhuRzfoNwt/edit"],
-["🌐 Annex C: Proforma for CNC Application","https://drive.google.com/file/d/1Y0v2lS9ykNYIwiOKTwEt6iZZeKANsFE0/view"],
-["🌐 CNC Online Application","https://cnconline.emb.gov.ph/projectchecker/OnlineApplication.aspx"],
-["🌐 ECC Online Application","https://ecconline.emb.gov.ph/live/"]
-]
-
-,
-
-"PAGKILOS Planning":[
-["📂 Annual Planning","#"],
-["📂 Work Program","#"],
-["📂 Activity Schedule","#"]
-],
-
-"PAGKILOS Monitoring":[
-["📊 Monitoring Tracker","#"],
-["📊 Progress Dashboard","#"],
-["📊 Validation Reports","#"]
-],
-
-"PAGKILOS Reports":[
-["📝 Monthly Reports","#"],
-["📝 Quarterly Reports","#"],
-["📝 Accomplishment Reports","#"]
-],
-
-"PAGKILOS Templates":[
-["📄 Report Template","#"],
-["📄 Monitoring Template","#"],
-["📄 Planning Template","#"]
-]
-    
-};
-
-function openCategory(name){
-
-document.getElementById("popupTitle").innerText=name;
-
-let html="";
-
-categories[name].forEach(item=>{
-
-html += `
-<a class="sheet-btn" href="${item[1]}" target="_blank">
-${item[0]}
-</a>
-`;
-
-});
-
-document.getElementById("sheetLinks").innerHTML=html;
-
-document.getElementById("popup").style.display="flex";
-}
-
-function closePopup(){
-
-document.getElementById("popup").style.display="none";
-}
-
-</script>
 
 <footer class="footer">
-   🌴 Environmental Management | Developed by Ghilous © 2026
+    🌴 Environmental Management | Developed by Ghilous © 2026
 </footer>
-    
+
 </body>
 </html>
