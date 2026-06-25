@@ -40,6 +40,26 @@ h1{
     0 0 30px rgba(255,255,255,.4);
 }
 
+/* KKB-CDD SECTION */
+
+.kkb-section{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:80px;
+}
+
+.kkb-title{
+    padding:12px 40px;
+    background:rgba(0,120,60,.85);
+    color:white;
+    font-size:32px;
+    font-weight:700;
+    border-radius:15px;
+    margin-bottom:35px;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
 /* WATER BUTTON ROW */
 
 .button-grid{
@@ -130,7 +150,6 @@ h1{
 /* PCRP SECTION */
 
 .pcrp-section{
-    margin-top:80px;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -233,6 +252,12 @@ h1{
         font-size:40px;
     }
 
+    .kkb-title,
+    .pcrp-title{
+        font-size:24px;
+        padding:10px 30px;
+    }
+
     .main-btn{
         width:160px;
         height:160px;
@@ -254,29 +279,37 @@ h1{
 
     <h1>Environmental Management</h1>
 
-    <!-- WATER BUTTONS -->
+    <!-- KKB-CDD SECTION -->
 
-    <div class="button-grid">
+    <div class="kkb-section">
 
-        <button class="main-btn">
-            <span>Online Trackers</span>
-        </button>
+        <div class="kkb-title">
+            KKB-CDD
+        </div>
 
-        <button class="main-btn">
-            <span>Manual & Guidance: MC/DO</span>
-        </button>
+        <div class="button-grid">
 
-        <button class="main-btn">
-            <span>Presentations</span>
-        </button>
+            <button class="main-btn">
+                <span>Online Trackers</span>
+            </button>
 
-        <button class="main-btn">
-            <span>Forms & Templates</span>
-        </button>
+            <button class="main-btn">
+                <span>Manual & Guidance: MC/DO</span>
+            </button>
+
+            <button class="main-btn">
+                <span>Presentations</span>
+            </button>
+
+            <button class="main-btn">
+                <span>Forms & Templates</span>
+            </button>
+
+        </div>
 
     </div>
 
-    <!-- PCRP SECTION BELOW -->
+    <!-- PCRP SECTION -->
 
     <div class="pcrp-section">
 
