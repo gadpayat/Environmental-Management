@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Environmental Safeguard</title>
+
 <style>
 
 *{
@@ -64,24 +64,14 @@ h1{
 
 /* BUTTON LAYOUT */
 
-.button-grid{
+.button-grid,
+.pcrp-grid{
     display:flex;
     justify-content:center;
     align-items:flex-start;
     gap:40px;
-    flex-wrap:nowrap;
+    flex-wrap:wrap;
 }
-.pcrp-grid{
-    display:grid;
-    grid-template-columns:repeat(3,190px);
-    justify-content:center;
-    gap:40px;
-}
-.item1{grid-column:1;grid-row:1;}
-.item2{grid-column:2;grid-row:1;}
-.item3{grid-column:3;grid-row:1;}
-.item4{grid-column:1 / span 1;grid-row:2;justify-self:end;}
-.item5{grid-column:3;grid-row:2;justify-self:start;}
 
 .button-card{
     display:flex;
@@ -267,51 +257,65 @@ h1{
 </style>
 </head>
 <body>
+
 <div class="container">
+
 <h1>Environmental Safeguard</h1>
+
 <!-- KKB-CDD -->
+
 <div class="kkb-section">
+
 <div class="kkb-title">KKB-CDD</div>
+
 <div class="button-grid">
+
 <div class="button-card">
 <button class="main-btn" onclick="toggleMenu('kkb1')">
 Online Tracker
 </button>
+
 <div class="sub-buttons" id="kkb1">
 <a href="https://docs.google.com/spreadsheets/d/12yK3rO10I0WLHzIROByat-dDk9lX6QB7/edit?gid=932123697#gid=932123697" target="_blank"><button class="sub-btn">🌐 CNC/ECC Tarcker 2026 for KKB</button></a>
 </div>
 </div>
+
 <div class="button-card">
 <button class="main-btn" onclick="toggleMenu('kkb2')">
-Manual &amp; Guidance
+Manual & Guidance
 </button>
+
 <div class="sub-buttons" id="kkb2">
-<a href="https://drive.google.com/drive/folders/1d3HCXeAULDtLCvgpMk-e8diRvA95OTY6?usp=drive_link" target="_blank"><button class="sub-btn">📝 Coverage Screening &amp; Standard Requirements</button></a>
-<a href="https://drive.google.com/file/d/16bPWZcGPpHhbfmGsZh8PEHhR0pUUKeaa/view" target="_blank"><button class="sub-btn">📝 Environment &amp; Social Management Framework</button></a>
-<a href="https://drive.google.com/file/d/1ejSlJ9CetkVjwKOZfji2GrJCIPkl2nwH/view" target="_blank"><button class="sub-btn">📝 Guideline on Monitoring &amp; Reporting</button></a>
+<a href="https://drive.google.com/drive/folders/1d3HCXeAULDtLCvgpMk-e8diRvA95OTY6?usp=drive_link" target="_blank"><button class="sub-btn">📝 Coverage Screening & Standard Requirements</button></a>
+<a href="https://drive.google.com/file/d/16bPWZcGPpHhbfmGsZh8PEHhR0pUUKeaa/view" target="_blank"><button class="sub-btn">📝 Environment & Social Management Framework</button></a>
+<a href="https://drive.google.com/file/d/1ejSlJ9CetkVjwKOZfji2GrJCIPkl2nwH/view" target="_blank"><button class="sub-btn">📝 Guideline on Monitoring & Reporting</button></a>
 </div>
 </div>
+
 <div class="button-card">
 <button class="main-btn" onclick="toggleMenu('kkb3')">
 Presentations
 </button>
+
 <div class="sub-buttons" id="kkb3">
-<a href="https://docs.google.com/presentation/d/1fj_JKnktQkU4Z7VCq5XZUUkI4WCU544x/edit?slide=id.p1#slide=id.p1" target="_blank"><button class="sub-btn">💻Environmental Safeguard Management (CNC &amp; ECC)</button></a>
-<a href="https://docs.google.com/presentation/d/1diGtlADf5QOxFimPiLfeX2QvS4EDLQ2f/edit?slide=id.p1#slide=id.p1" target="_blank"><button class="sub-btn">💻Environmental Safeguard Management (Water Permit &amp; others)</button></a>
+<a href="https://docs.google.com/presentation/d/1fj_JKnktQkU4Z7VCq5XZUUkI4WCU544x/edit?slide=id.p1#slide=id.p1" target="_blank"><button class="sub-btn">💻Environmental Safeguard Management (CNC & ECC)</button></a>
+<a href="https://docs.google.com/presentation/d/1diGtlADf5QOxFimPiLfeX2QvS4EDLQ2f/edit?slide=id.p1#slide=id.p1" target="_blank"><button class="sub-btn">💻Environmental Safeguard Management (Water Permit & others)</button></a>
 <a href="https://docs.google.com/presentation/d/19wt79gmihPddOoHCEEm3VDWAqZ-sFCrY/edit?slide=id.p1#slide=id.p1" target="_blank"><button class="sub-btn">💻Risk Management for Community Projects</button></a>
-<a href="https://docs.google.com/presentation/d/1Y-6n9X5HiTQ_oHh7lYBZPQdbP0cF-_V-/edit?slide=id.p1#slide=id.p1" target="_blank"><button class="sub-btn">💻ESA &amp; ESMP</button></a>
-<a href="https://drive.google.com/file/d/1vez0aKBaVvbipFBX3ORswVlXCXgbCIht/view" target="_blank"><button class="sub-btn">💻ESMP Monitoring &amp; Reporting</button></a>
+<a href="https://docs.google.com/presentation/d/1Y-6n9X5HiTQ_oHh7lYBZPQdbP0cF-_V-/edit?slide=id.p1#slide=id.p1" target="_blank"><button class="sub-btn">💻ESA & ESMP</button></a>
+<a href="https://drive.google.com/file/d/1vez0aKBaVvbipFBX3ORswVlXCXgbCIht/view" target="_blank"><button class="sub-btn">💻ESMP Monitoring & Reporting</button></a>
 </div>
 </div>
+
 <div class="button-card">
 <button class="main-btn" onclick="toggleMenu('kkb4')">
-Forms &amp; Templates
+Forms & Templates
 </button>
+
 <div class="sub-buttons" id="kkb4">
 <a href="https://docs.google.com/spreadsheets/d/1rx5SE-32EFwXSGeL-nIcUgVOlAq-MqKr/edit?rtpof=true" target="_blank"><button class="sub-btn">📂 Water Permit Application Checklist</button></a>
 <a href="https://docs.google.com/document/d/1M2WItLKvNbrbHGhzNWtLR5m7iQ98U-cq/edit" target="_blank"><button class="sub-btn">📂 Requirement on Securing Tree Cutting Permit</button></a>
 <a href="https://docs.google.com/document/d/1yzPLIQ2hh-DTM_YQVJSa9lhhuRzfoNwt/edit" target="_blank"><button class="sub-btn">📂 CMR-SWA of Proponent</button></a>
-<a href="https://drive.google.com/file/d/1GDqCstzB27yztGtO7a8oyqjLD7uzOJm6/view" target="_blank"><button class="sub-btn">📂 ESMP Monitoring &amp; Reporting Template</button></a>
+<a href="https://drive.google.com/file/d/1GDqCstzB27yztGtO7a8oyqjLD7uzOJm6/view" target="_blank"><button class="sub-btn">📂 ESMP Monitoring & Reporting Template</button></a>
 <a href="https://drive.google.com/file/d/1O7eFfV00z4hgUglQCEq9n9eK9j1mtMlT/view" target="_blank"><button class="sub-btn">📂 S1 ESSC</button></a>
 <a href="https://drive.google.com/file/d/1T0QEoV8weyDnLPl0FZ-AU_YyokYinKpU/view" target="_blank"><button class="sub-btn">📂 S2 ESMP</button></a>
 <a href="https://drive.google.com/file/d/1Y0v2lS9ykNYIwiOKTwEt6iZZeKANsFE0/view" target="_blank"><button class="sub-btn">🌐 Annex C: Proforma for CNC Application</button></a>
@@ -319,16 +323,24 @@ Forms &amp; Templates
 <a href="https://ecconline.emb.gov.ph/live/" target="_blank"><button class="sub-btn">🌐 ECC Online Application</button></a>
 </div>
 </div>
+
 </div>
+
 </div>
+
 <!-- PCRP -->
+
 <div class="pcrp-section">
+
 <div class="pcrp-title">PCRP (PAGKILOS)</div>
+
 <div class="pcrp-grid">
-<div class="button-card item1">
+
+<div class="button-card">
 <button class="leaf-btn" onclick="toggleMenu('pcrp1')">
 Online Tracker
 </button>
+
 <div class="sub-buttons" id="pcrp1">
 <a href="#" target="_blank"><button class="sub-btn">Empty 1</button></a>
 <a href="#" target="_blank"><button class="sub-btn">Empty 2</button></a>
@@ -337,10 +349,12 @@ Online Tracker
 <a href="#" target="_blank"><button class="sub-btn">Empty 5</button></a>
 </div>
 </div>
-<div class="button-card item2">
+
+<div class="button-card">
 <button class="leaf-btn" onclick="toggleMenu('pcrp2')">
-Manual &amp; Guidance
+Manual & Guidance
 </button>
+
 <div class="sub-buttons" id="pcrp2">
 <a href="#" target="_blank"><button class="sub-btn">Empty 1</button></a>
 <a href="#" target="_blank"><button class="sub-btn">Empty 2</button></a>
@@ -349,10 +363,12 @@ Manual &amp; Guidance
 <a href="#" target="_blank"><button class="sub-btn">Empty 5</button></a>
 </div>
 </div>
-<div class="button-card item3">
+
+<div class="button-card">
 <button class="leaf-btn" onclick="toggleMenu('pcrp3')">
 Presentations
 </button>
+
 <div class="sub-buttons" id="pcrp3">
 <a href="#" target="_blank"><button class="sub-btn">Empty 1</button></a>
 <a href="#" target="_blank"><button class="sub-btn">Empty 2</button></a>
@@ -361,10 +377,12 @@ Presentations
 <a href="#" target="_blank"><button class="sub-btn">Empty 5</button></a>
 </div>
 </div>
-<div class="button-card item4">
+
+<div class="button-card">
 <button class="leaf-btn" onclick="toggleMenu('pcrp4')">
-Forms &amp; Templates
+Forms & Templates
 </button>
+
 <div class="sub-buttons" id="pcrp4">
 <a href="#" target="_blank"><button class="sub-btn">Empty 1</button></a>
 <a href="#" target="_blank"><button class="sub-btn">Empty 2</button></a>
@@ -373,24 +391,17 @@ Forms &amp; Templates
 <a href="#" target="_blank"><button class="sub-btn">Empty 5</button></a>
 </div>
 </div>
-<div class="button-card item5">
-<button class="leaf-btn" onclick="toggleMenu('pcrp5')">
-Memo, MOA &amp; Others
-</button>
-<div class="sub-buttons" id="pcrp5">
-<a href="#" target="_blank"><button class="sub-btn">Empty 1</button></a>
-<a href="#" target="_blank"><button class="sub-btn">Empty 2</button></a>
-<a href="#" target="_blank"><button class="sub-btn">Empty 3</button></a>
-<a href="#" target="_blank"><button class="sub-btn">Empty 4</button></a>
-<a href="#" target="_blank"><button class="sub-btn">Empty 5</button></a>
+
 </div>
+
 </div>
+
 </div>
-</div>
-</div>
+
 <footer class="footer">
 🌴 Environmental Safeguard | Developed by Ghilous © 2026
 </footer>
+
 <script>
 
 function toggleMenu(menuId){
@@ -407,5 +418,6 @@ function toggleMenu(menuId){
 }
 
 </script>
+
 </body>
 </html>
