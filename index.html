@@ -71,11 +71,49 @@ h1{
     gap:40px;
     flex-wrap:nowrap;
 }
+/* PCRP GRID - PERFECTLY CENTERED W SHAPE */
+
 .pcrp-grid{
     display:grid;
-    grid-template-columns:repeat(3,190px);
+    grid-template-columns:repeat(6,95px);
+    grid-auto-rows:auto;
     justify-content:center;
-    gap:40px;
+    column-gap:0;
+    row-gap:40px;
+}
+
+/* Top Row */
+
+.item1{
+    grid-column:1 / span 2;
+    grid-row:1;
+    justify-self:center;
+}
+
+.item2{
+    grid-column:3 / span 2;
+    grid-row:1;
+    justify-self:center;
+}
+
+.item3{
+    grid-column:5 / span 2;
+    grid-row:1;
+    justify-self:center;
+}
+
+/* Bottom Row (Centered) */
+
+.item4{
+    grid-column:2 / span 2;
+    grid-row:2;
+    justify-self:center;
+}
+
+.item5{
+    grid-column:4 / span 2;
+    grid-row:2;
+    justify-self:center;
 }
 .item1{grid-column:1;grid-row:1;}
 .item2{grid-column:2;grid-row:1;}
