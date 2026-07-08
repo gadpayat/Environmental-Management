@@ -257,6 +257,22 @@ h1{
     text-decoration:none;
 }
 
+.nested-buttons{
+    display:none;
+    flex-direction:column;
+    gap:6px;
+    margin-left:25px;
+    margin-top:6px;
+}
+
+.nested-buttons.show{
+    display:flex;
+}
+
+.sub-btn.nested{
+    font-size:13px;
+    background:rgba(255,255,255,.08);
+}
 
 .repository-btn{
 width:180px;height:70px;border:none;border-radius:12px 12px 8px 8px;
@@ -364,7 +380,29 @@ Forms &amp; Templates
 <div class="button-card repo-card">
 <button class="repository-btn" onclick="toggleMenu('kkb5')">📁 Repository</button>
 <div class="sub-buttons" id="kkb5">
-<a href="#" target="_blank"><button class="sub-btn">📁 Repository 1</button></a>
+<button class="sub-btn" onclick="toggleSubMenu('repo1')">
+    📁 Repository 1 ▸
+</button>
+
+<div class="nested-buttons" id="repo1">
+
+    <a href="LINK1" target="_blank">
+        <button class="sub-btn nested">📄 File 1</button>
+    </a>
+
+    <a href="LINK2" target="_blank">
+        <button class="sub-btn nested">📄 File 2</button>
+    </a>
+
+    <a href="LINK3" target="_blank">
+        <button class="sub-btn nested">📄 File 3</button>
+    </a>
+
+    <a href="LINK4" target="_blank">
+        <button class="sub-btn nested">📄 File 4</button>
+    </a>
+
+</div>
 <a href="#" target="_blank"><button class="sub-btn">📁 Repository 2</button></a>
 <a href="#" target="_blank"><button class="sub-btn">📁 Repository 3</button></a>
 <a href="#" target="_blank"><button class="sub-btn">📁 Repository 4</button></a>
@@ -456,7 +494,20 @@ function toggleMenu(menuId){
 
     document.getElementById(menuId).classList.toggle('show');
 }
+    
+function toggleSubMenu(id){
 
+    const menus = document.querySelectorAll('.nested-buttons');
+
+    menus.forEach(menu=>{
+        if(menu.id !== id){
+            menu.classList.remove('show');
+        }
+    });
+
+    document.getElementById(id).classList.toggle('show');
+}
+    
 </script>
 </body>
 </html>
