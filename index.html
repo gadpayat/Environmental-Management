@@ -276,22 +276,26 @@ h1{
 
 .repository-btn{
 width:180px;height:70px;border:none;border-radius:12px 12px 8px 8px;
-background: linear-gradient(
-90deg,
-#5E3500 0%,
-#7A4A00 8%,
-#9E6700 16%,
-#BF8500 24%,
-#D8A800 34%,
-#F2D100 46%,
-#FFD700 50%,
-#F2D100 54%,
-#D8A800 66%,
-#BF8500 76%,
-#9E6700 86%,
-#7A4A00 94%,
-#5E3500 100%
+background:
+radial-gradient(circle at center,
+#FFD700 0%,
+#F6CB00 12%,
+#E8B100 24%,
+#C98A00 45%,
+#9A6200 70%,
+#603700 100%),
+
+conic-gradient(
+from 0deg,
+rgba(255,255,255,.22),
+rgba(255,255,255,0) 18%,
+rgba(0,0,0,.22) 35%,
+rgba(255,255,255,.18) 50%,
+rgba(0,0,0,.25) 68%,
+rgba(255,255,255,.15) 85%,
+rgba(255,255,255,.22) 100%
 );
+    
 color:#4a2d00;font-weight:700;cursor:pointer;box-shadow:0 8px 18px rgba(0,0,0,.25);
 animation:bubbleFloat 5s ease-in-out infinite;}
 .repo-card{grid-column:4;grid-row:2;justify-self:center;margin-top:10px;}
